@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo HTML</title>
+</head>
+<body>
+    
+    <h1 id="Inicio">Módulo 1 - Primeiros Passos no HTML</h1>
+    <hr>
+
+    <h2>Índices</h2>
+    <ol>
+        <li><strong>Entendendo</strong>
+
+        <ul type="circle"> 
+
+            <li>
+                <a href="#HTML">O que é o HTML?</a>
+            </li>
+
+            <li>
+                <a href="#praQueServe">Para que serve o HTML?</a>
+            </li>
+
+            <li>
+                <a href="#Diferencas">Diferença entre HTML, CSS e JavaScript</a>
+            </li>
+        </li>
+        </ul>
+
+        <li><strong>Conceitos básicos</strong>
+            <ul type="square">
+
+                <li>
+                    <a href="#Estrutura">Estrutura básica de um documento HTML</a>
+                </li>
+
+                <li>
+                    <a href="#Tags">O que são Tags?</a>
+                </li>
+
+                <li>
+                    <a href="#Atributos">O que são Atributos?</a>
+                </li>
+            </ul>
+        </li>
+
+        <li><strong>Textos, Títulos e Mais Alugumas Tags</strong>
+            <ul type="disc">
+
+                <li>
+                    <a href="#Titulos">Trabalhando com Títulos</a>
+                </li>
+
+                <li>
+                    <a href="#Textos">Trabalhando com Textos</a>
+                </li>
+
+                <li>
+                    <a href="#Listas">Trabalhando com Listas</a>
+                </li>
+
+                <li>
+                    <a href="#Links">Links</a>
+                </li>
+
+                <li>
+                    <a href="#Imagens">Imagens</a>
+                </li>
+            </ul>
+        </li>
+    </ol>
+    <hr>
+
+    <h2 id="HTML">O que é o HTML?</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>HTML, que significa HyperText Markup Language, é a linguagem usada para criar e estruturar páginas na web. Ele funciona como o esqueleto de um site, organizando o conteúdo em elementos chamados de tags, que indicam ao navegador o que cada parte representa, como títulos, parágrafos, imagens ou links. Embora o HTML seja responsável por dar forma e significado ao conteúdo, ele não define aparência nem interatividade; para isso, utiliza-se o CSS, que cuida do estilo visual, e o JavaScript, que adiciona dinamismo e funções extras. Assim, o HTML é a base de qualquer página da internet, permitindo que navegadores interpretem e exibam as informações de maneira correta para os usuários.</p>
+
+    <hr>
+    <h2 id="praQueServe">Para que serve o HTML?</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>
+        O HTML serve para construir a estrutura de uma página da internet, funcionando como a base sobre a qual todo site é criado. Ele organiza o conteúdo em blocos e elementos, como títulos, parágrafos, imagens, links, listas, tabelas e formulários, permitindo que o navegador entenda e exiba essas informações corretamente para o usuário. Sem o HTML, os sites não teriam formato nem organização, apenas dados soltos. É por meio dele que o conteúdo da web ganha sentido, tornando-se navegável e acessível.
+    </p>
+
+    <hr>
+    <h2 id="Diferencas">Diferença entre HTML, CSS e JavaScript</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>
+        HTML, CSS e JavaScript trabalham juntos para formar qualquer site, mas cada um tem um papel diferente. O HTML é a estrutura, ou seja, define o conteúdo da página: textos, imagens, links, listas, tabelas, formulários. O CSS é a aparência, ele controla as cores, os tamanhos, as fontes, os espaços e o layout, deixando a página bonita e organizada. Já o JavaScript é a parte da interação e do movimento, permitindo que a página reaja às ações do usuário, como cliques, animações, validação de formulários e funções mais avançadas.
+    </p>
+
+    <p>
+        Uma forma simples de entender: o HTML é o corpo, o CSS é a roupa e o JavaScript é o cérebro que dá vida e interatividade ao site.
+    </p>
+
+    <hr>
+    <h2 id="Estrutura">Estrutura básica de um documento HTML</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>
+        A estrutura básica do HTML é como o esqueleto mínimo que toda página precisa para funcionar. Ela sempre começa declarando o tipo de documento e, em seguida, divide a página em duas partes principais: o head e o body.
+    </p>
+
+    <p>
+        No head ficam informações sobre a página, como o título que aparece na aba do navegador, a configuração de caracteres e links para arquivos externos (como CSS ou ícones).
+    </p>
+
+    <p>
+        No body fica o conteúdo visível da página, como textos, imagens, links e tudo que o usuário enxerga e interage. Como visto logo a baixo:
+    </p>
+
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="pt-br"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Título da Página&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            Conteúdo da página vai aqui
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+
+    <hr>
+    <h2 id="Tags">O que são Tags?</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+    
+    <p>
+        Em HTML, tags são os elementos que dizem ao navegador como interpretar e exibir cada parte do conteúdo da página. Elas são como instruções que envolvem o conteúdo e indicam sua função: por exemplo, &lt;h1&gt; define um título, &lt;p&gt; define um parágrafo, &lt;a&gt; cria um link, e &lt;img&gt; insere uma imagem. Cada tag geralmente vem em pares, com uma tag de abertura (como &lt;p&gt;) e uma tag de fechamento (como &lt;/p&gt;), embora algumas tags sejam autocontidas, como &lt;img&gt; ou &lt;br&gt;. As tags são a base da estrutura do HTML, permitindo organizar e formatar o conteúdo de maneira clara e funcional. Aqui estão algums das tags mais utilizadas:
+        <pre>
+        &lt;!DOCTYPE html&gt; - Declara o tipo de documento
+        &lt;html&gt; - Elemento raiz que envolve todo o conteúdo da página
+        &lt;head&gt; - Contém metadados e informações sobre a página
+        &lt;title&gt; - Define o título da página que aparece na aba do navegador
+        &lt;meta&gt; - Fornece metadados como charset e viewport
+        &lt;body&gt; - Contém o conteúdo visível da página
+        &lt;h1&gt; a &lt;h6&gt; - Define títulos, do mais importante (h1) ao menos importante (h6)
+        &lt;p&gt; - Define um parágrafo de texto
+        &lt;a&gt; - Cria um link para outra página ou recurso
+        &lt;img&gt; - Insere uma imagem na página
+        &lt;ul&gt; - Cria uma lista não ordenada (com marcadores)
+        &lt;ol&gt; - Cria uma lista ordenada (numerada)
+        &lt;li&gt; - Define um item de lista, usado dentro de &lt;ul&gt; ou &lt;ol&gt;
+        &lt;div&gt; - Define uma seção ou divisão genérica na página
+        &lt;span&gt; - Define uma seção inline para estilização ou agrupamento
+        &lt;form&gt; - Cria um formulário para entrada de dados
+        &lt;input&gt; - Define um campo de entrada dentro de um formulário
+        &lt;button&gt; - Cria um botão clicável
+        &lt;table&gt; - Cria uma tabela
+        &lt;tr&gt; - Define uma linha em uma tabela
+        &lt;th&gt; - Define um cabeçalho de célula em uma tabela
+        &lt;td&gt; - Define uma célula de dados em uma tabela
+        &lt;br&gt; - Insere uma quebra de linha
+        &lt;hr&gt; - Insere uma linha horizontal
+        &lt;strong&gt; - <strong>Define texto em negrito, com ênfase forte</strong>
+        &lt;em&gt; ou &lt;i&gt; - <em>Define texto em itálico, com ênfase</em>
+        &lt;u&gt; - Define texto <u>sublinhado</u>
+        &lt;s&gt; - Define texto <s>tachado</s>
+        &lt;sup&gt; - Define texto sobrescrito <sup>(acima da linha)</sup>
+        &lt;sub&gt; - Define texto subscrito <sub>(abaixo da linha)</sub>
+        &lt;mark&gt; - Define texto <mark>marcado ou destacado</mark>
+        &lt;pre&gt; - Define texto pré-formatado, preservando espaços e quebras de linha
+        &lt;nav&gt; - Define uma seção de navegação
+        &lt;section&gt; - Define uma seção temática na página
+        &lt;article&gt; - Define um artigo ou conteúdo independente
+        &lt;header&gt; - Define o cabeçalho de uma seção ou página
+        &lt;footer&gt; - Define o rodapé de uma seção ou página
+        &lt;main&gt; - Define o conteúdo principal da página
+        &lt;aside&gt; - Define conteúdo lateral ou complementar
+        </pre>
+        <p>Consulte no site oficial da <a href="https://www.w3schools.com/html/html_elements.asp" target="_blank">w3schools</a> todas as tags.</p>
+    </p>
+    
+    <hr>
+    <h2 id="Atributos">O que são Atributos?</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>
+        Em HTML, atributos são informações extras que você adiciona às tags para especificar ou modificar seu comportamento e aparência. Eles funcionam como “detalhes” que dizem ao navegador como aquela tag deve se comportar ou que conteúdo ela deve usar.
+    </p>
+    <p>
+        Por exemplo, na tag &lt;a&gt; (que cria links), o atributo href = "url_do_site" define para onde o link vai.
+    </p>
+
+    <p>
+        Ou na tag &lt;img&gt; (que insere imagens), o atributo src = "caminho_da_imagem" indica qual imagem deve ser exibida, e o atributo alt = "descrição_da_imagem" fornece uma descrição alternativa para a imagem, útil para acessibilidade.
+    </p>
+
+    <p>
+        Aqui estão alguns dos atributos mais comuns em HTML:
+        <pre>
+        id = "nome" -> Define um identificador único para o elemento. Usado para estilização com CSS ou manipulação com JavaScript.
+
+        class = "nome" -> Define uma ou mais classes para o elemento. Usado para agrupar elementos com a mesma característica para estilização com CSS.
+
+        type = "tipo" -> Define o tipo de elemento, especialmente em formulários. Por exemplo, em &lt;input&gt;, pode ser text, password, email, etc. Ou em &lt;ul&gt;, pode ser circle, square, disc...
+        
+        src = "caminho" -> Usado em &lt;img&gt; para especificar o caminho da imagem a ser exibida. Ou usado em &lt;script&gt; para especificar o caminho do arquivo JavaScript.
+
+        alt = "descrição" -> Usado em &lt;img&gt; para fornecer uma descrição alternativa da imagem, importante para acessibilidade e SEO.
+
+        title = "título" -> Fornece um título ou dica que aparece quando o usuário passa o mouse sobre o elemento.
+
+        width e height = "valor" -> Define a largura e altura de elementos como imagens, vídeos ou canvas. Pode ser em pixels (px) ou porcentagem (%).
+
+        href = "url" -> Usado em &lt;a&gt; para especificar o destino do link, seja uma página interna ou externa.
+
+        target = "_self" ou "_blank" -> Define onde o link será aberto. _self abre na mesma aba, _blank abre em uma nova aba.     
+        </pre>    
+
+        <p>
+            Consulte no site oficial da <a href="https://www.w3schools.com/html/html_attributes.asp" target="_blank">w3schools</a> todos os atributos.
+        </p>
+    
+    </p>
+
+    <hr>
+    <h2 id="Titulos">Trabalhando com Títulos</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>Em HTML, os títulos são elementos que servem para organizar e hierarquizar o conteúdo de uma página, indicando quais partes são mais importantes ou principais e quais são secundárias. Eles vão do mais importante ao menos importante, usando as tags &lt;h1&gt; a &lt;h6&gt;.
+    Além de organizar visualmente o texto (os navegadores geralmente deixam os títulos maiores e em negrito), os títulos também ajudam motores de busca (como o Google) a entender a estrutura e o tema do conteúdo da página. Isso é importante para SEO (Search Engine Optimization), pois títulos bem estruturados podem melhorar a visibilidade do site nos resultados de busca.
+    </p>
+    <p>Veja como funcionam:</p>
+    <h1>Título usando &lt;h1&gt;</h1>
+    <h2>Título usando &lt;h2&gt</h2>
+    <h3>Título usando &lt;h3&gt</h3>
+    <h4>Título usando &lt;h4&gt</h4>
+    <h5>Título usando &lt;h5&gt</h5>
+    <h6>Título usando &lt;h6&gt</h6>
+
+
+    <hr>
+    <h2 id="Textos">Trabalhando com Textos</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>
+        Em HTML, o texto é o conteúdo principal que você vê em uma página da web. Ele pode ser organizado e formatado usando várias tags específicas para diferentes tipos de texto e estilos. A tag mais comum para parágrafos de texto é &lt;p&gt;, que cria um bloco de texto separado. Além disso, existem tags para enfatizar ou destacar partes do texto, como &lt;strong&gt; (negrito), &lt;em&gt; (itálico), &lt;u&gt; (sublinhado) e &lt;mark&gt; (destacado). Também há tags para criar listas ordenadas (&lt;ol&gt;) e não ordenadas (&lt;ul&gt;), bem como listas de definição (&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;). Outras tags úteis incluem &lt;br&gt; para quebras de linha e &lt;hr&gt; para linhas horizontais que separam seções de texto. Essas tags ajudam a estruturar o conteúdo textual, tornando-o mais legível e organizado.
+    </p>
+
+    <hr>
+    <h2 id="Listas">Trabalhando com Listas</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>
+        Em HTML, listas são usadas para organizar itens relacionados de forma clara e estruturada. Existem três tipos principais de listas: listas ordenadas (&lt;ol&gt;), listas não ordenadas (&lt;ul&gt;) e listas de definição (&lt;dl&gt;). As listas ordenadas são numeradas, indicando uma sequência ou prioridade entre os itens, enquanto as listas não ordenadas usam marcadores (como pontos ou círculos) para listar itens sem uma ordem específica. Cada item dentro dessas listas é definido pela tag &lt;li&gt; (list item). Já as listas de definição são usadas para pares de termos e suas descrições, utilizando as tags &lt;dt&gt; (definition term) para o termo e &lt;dd&gt; (definition description) para a descrição. As listas ajudam a tornar o conteúdo mais legível e fácil de entender, especialmente quando há vários itens relacionados.
+    </p>
+    <p>
+        Exemplo de cada uma das listas:
+    1. Lista Ordenada:  
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+    2. Lista Não Ordenada:
+    <ul>
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+    </ul>
+    3. Lista de Definição:
+    <dl>
+        <dt>HTML</dt>
+        <dd>Linguagem de Marcação para a Criação de Site's</dd>
+        <dt>CSS</dt>
+        <dd>Linguagem de Marcação para a Criação de Design de um Site</dd>
+        <dt>Javascript</dt>
+        <dd>Linguagem de Programação para a interatividade de um Site</dd>
+    </dl>
+
+    </p>
+
+    <hr>
+    <h2 id="Imagens">Imagens</h2>
+    <small"><a href="#Inicio"><i>(Voltar)</i></a></small>
+
+    <p>
+        Em HTML, imagens são elementos visuais que podem ser inseridos em uma página da web para torná-la mais atraente e informativa. Elas são adicionadas usando a tag &lt;img&gt;, que é uma tag autocontida (não possui tag de fechamento) e requer o atributo src para especificar o caminho ou URL da imagem a ser exibida. Além disso, é altamente recomendável usar o atributo alt para fornecer uma descrição alternativa da imagem, o que é importante para acessibilidade, permitindo que leitores de tela descrevam a imagem para usuários com deficiência visual. Outros atributos úteis incluem width e height, que definem as dimensões da imagem, e title, que pode fornecer um título ou dica quando o usuário passa o mouse sobre a imagem. As imagens ajudam a melhorar a experiência do usuário, tornando o conteúdo mais envolvente e fácil de entender.
+    </p>
+    <p>
+        Aqui está um exemplo de como inserir uma imagem em HTML:
+    </p>
+    <pre>
+        &lt;img src="caminho_da_imagem.jpg" alt="Descrição da Imagem" width="300" height="200"&gt;
+    </pre>
+    <p>
+        Como funciona na prática:
+    </p>
+    <img src="ballons.png" alt="Balões" width="300" height="200">
+    
+    <hr>
+    <h2 id="Links">Links</h2>
+    
+
+     <p>
+        Em HTML, links são elementos que permitem conectar uma página da web a outra, seja dentro do mesmo site ou para um site externo. Eles são criados usando a tag &lt;a&gt; (âncora), que envolve o texto ou o elemento clicável e utiliza o atributo href para especificar o destino do link. Quando um usuário clica em um link, ele é redirecionado para a URL definida no atributo href. Links são essenciais para a navegação na web, facilitando o acesso a informações relacionadas e recursos adicionais. Além disso, os links podem ser estilizados com CSS para melhorar sua aparência e usabilidade. E também podem incluir atributos adicionais, como target, que define onde o link será aberto (na mesma aba ou em uma nova aba).
+    </p>
+    <p>
+         Aqui estão alguns exemplos de links:
+    </p>
+    
+    <p>
+        <a href="https://www.linkedin.com/in/eduardoribeiro01/" target="_blank" rel="external">Acesse meu Perfil no Linkedin</a> (Link Externo abrindo em nova aba com blank)
+    </p>
+
+    <p>
+        <br>
+        <a href="pagina2.html" target="_self">Acesse a Página do Próximo Módulo</a> (Link Interno abrindo na mesma aba com self)
+    </p>
+
+    <p>
+        <br>
+        <small"><a href="#Inicio"><i>(Voltar) - Volta ao topo dessa página</i></a></small>
+    </p>
+
+
+    
+
+    
+
+</body>
+</html>
