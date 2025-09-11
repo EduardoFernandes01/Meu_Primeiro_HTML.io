@@ -3,24 +3,994 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprendendo HTML</title>
+    <title>Conceitos Básicos</title>
     <style>
-        body {
-            background-image: url('https://assets.maiscontroleerp.com.br/wp-content/uploads/2017/07/101124-seguro-garantia-de-entrega-de-obra-o-que-e-e-como-funciona.jpg'); /* Caminho da sua imagem */
-            background-size: cover; /* Faz a imagem cobrir toda a tela */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat; /* Evita que a imagem se repita */
-        }
-        h2 {
-            color: rgb(255, 0, 0); /* Exemplo de cor de texto para contraste */
-            text-align: center;
-            padding-top: 50px;
-        }
-    </style>
+    .bloco {
+      width: 200px;
+      height: 100px;
+      margin: 10px;
+      padding: 10px;
+      color: #fff;
+      font-weight: bold;
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+    }
+    .vermelho { background: #e74c3c; }
+    .azul { background: #3498db; }
+    .verde { background: #2ecc71; }
+    .destaque {
+        color: blue;
+        font-weight: bold;
+    }   
+    /* Aplica apenas às tabelas com class="estilizada" */
+    table.estilizada {
+        -webkit-box-shadow: 12px 14px 6px 5px rgba(0,0,0,0.24);
+        box-shadow: 12px 14px 6px 5px rgba(0,0,0,0.24);
+        border: solid 1px gray;
+    }
+
+    table.estilizada thead th {
+        background-color: black;
+        color: white;
+    }
+
+    table.estilizada tfoot td {
+        background-color: lightgray;
+    }
+
+    table.estilizada tbody tr:nth-child(even) td {
+        background-color: #f1f1f1; /* linhas pares */
+    }
+
+    table.estilizada tbody tr:hover td {
+        background-color: #ff0000;
+        cursor: pointer; /* mouse vira mãozinha */
+    }
+
+    /* (Se quiser manter essas duas também) */
+
+    table.estilizada tr:hover td {
+        background-color: darkgray;
+    }
+
+  </style>
+
 </head>
 <body>
-    <h1>Bem Vindo ao Módulo 2</h1>
-    <h2>Em construção...</h2>
-    <h2><a href="index.html">Voltar ao Módulo 1</a></h2>
+    <div class="header">
+        <h1>Módulo 2 - Conceitos Básicos em HTML</h1>
+    </div>
+
+    <div class = "content">
+        <hr>
+            <h2 id="inicio">Índices</h2>
+            <ol>
+
+                <li><strong>Formulários</strong></li>
+                <ul>
+                    <li><a href="#form">Form e seus atributo</a>s</li>
+                    <li><a href="#labels">Labels</a></li>
+                    <li><a href="#inputs">Inputs e seus tipos</a></li>
+                    <li><a href="#textarea">Textarea</a></li>
+                    <li><a href="#select">Select e Option</a></li>
+                    <li><a href="#button">Button</a></li>
+                    <li><a href="#fieldset">Fieldset</a></li>
+                </ul>
+
+                <li><strong>DIV e SPAN</strong></li>
+                <ul>
+                    <li><a href="#div">O que é uma Div?</a></li>
+                    <li><a href="#span">O que é um Span?</a></li>
+                </ul>
+
+                <li><strong>Mídias</strong></li>
+                <ul>
+                    <li><a href="#imagem">Imagem</a></li>
+                    <li><a href="#audio">Áudio</a></li>
+                    <li><a href="#video">Vídeo</a></li>
+                    <li><a href="#track">Track</a></li>
+                    <li><a href="#iframe">Iframe</a></li>
+                </ul>
+
+                <li><strong>Tabelas</strong></li>
+                <ul>
+                    <li><a href="#tags_tabela">Conceitos Básicos: tr, th, td</a></li>
+                    <li><a href="#estrutura_tabela">Conceitos de thead, tbody e tfoot</a></li>
+                    <li><a href="#conceitos_tabela">Mais alguns conceitos e estilização com CSS</a></li>
+                </ul>
+
+            </ol>
+        <hr>
+        <h2 align = "center">Formulários</h2>
+
+        <p>Formulários em HTML são estruturas que permitem a interação entre o usuário e uma aplicação ou site. Eles servem como uma interface de coleta de dados, onde o visitante pode inserir informações que serão enviadas e processadas por um servidor ou por scripts no próprio navegador.</p>
+
+        <h3 id="form">Form e seus atributos</h3>
+
+        <p>Um formulário é definido pela tag &lt;form&gt; e dentro dela ficam os elementos de entrada (inputs), como campos de texto, caixas de seleção, botões, áreas de texto, listas suspensas, entre outros. Mais a frente serão mostrados alguns exemplos, agora vamos focar em alguns atributos que essa tag carrega, sendo alguns deles:</p>
+        <pre>   
+    method: Define o método HTTP a ser usado ao enviar o formulário. Os valores comuns são "GET" e "POST".
+
+    action: Especifica o URL para onde os dados do formulário serão enviados quando o formulário for submetido.
+
+    name: Atribui um nome ao formulário, que pode ser usado para referenciá-lo em scripts.
+
+    target: Define onde abrir a página de resposta após o envio do formulário. Valores comuns incluem "_self" (mesma aba), "_blank" (nova aba), "_parent" e "_top".
+
+    autocomplete: Indica se o navegador deve ou não preencher automaticamente os campos do formulário com base em entradas anteriores. Valores possíveis são "on" (ativado) e "off" (desativado).
+
+    onsubmit: Especifica um script a ser executado quando o formulário é submetido. Pode ser usado para validação de dados antes do envio.
+
+    onreset: Especifica um script a ser executado quando o formulário é resetado.
+        </pre>  
+    <p>Em suma, os formulários são essenciais para coletar informações dos usuários em páginas web. Eles permitem a criação de interfaces interativas e personalizadas, facilitando o envio de dados para processamento, seja por servidores ou scripts locais. O domínio dos atributos e elementos de um formulário é fundamental para o desenvolvimento de aplicações web eficientes e seguras.</p>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="labels">Labels</h3>
+        <p>Labels são elementos HTML representados pela tag &lt;label&gt;</code>, usados para associar textos descritivos a campos de formulário, como inputs, selects ou textareas. Eles melhoram a acessibilidade e a usabilidade, pois ao clicar em um label, o campo correspondente é ativado.
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="inputs">Inputs e seus tipos</h3>
+        <p>Inputs são elementos HTML representados pela tag &lt;input&gt;</code>, usados para criar campos interativos em formulários. Eles permitem ao usuário inserir dados, como texto, números, senhas, datas, arquivos e muito mais. São usados em conjunto com as labels para dar clareza no texto que deve ser inserido dentro do campo de texto. Abaixo temos alguns exemplos de como usar os inputs juntamente com as labels:</p>
+        <ul>
+            <li><strong>text</strong>: Campo de texto simples.</li>
+
+            <pre>
+Código: &lt;label&gt;Nome:&lt;/label&gt;&lt;input type="text" name="nome"&gt;
+            </pre>
+            <label>Nome: </label> <input type="text" name="nome">
+            <br><br>
+
+            <li><strong>password</strong>: Campo para senha, oculta os caracteres digitados.</li>
+            <pre>
+Código: &lt;label&gt;Senha:&lt;/label&gt;&lt;input type="password" name="senha"&gt;
+            </pre>
+            <label>Senha: </label> <input type="password" name="senha">
+            <br><br>
+
+            <li><strong>email</strong>: Campo para e-mail, valida o formato.</li>
+            <pre>
+Código: &lt;label&gt;E-mail:&lt;/label&gt;&lt;input type="email" name="email"&gt;
+            </pre>
+            <label>E-mail: </label> <input type="email" name="email">
+            <br><br>
+
+            <li><strong>number</strong>: Campo para números.</li>
+            <pre>
+Código: &lt;label&gt;Idade:&lt;/label&gt;&lt;input type="number" name="idade"&gt;
+            </pre>
+            <label>Idade: </label> <input type="number" name="idade">
+            <br><br>
+
+            <li><strong>date</strong>: Campo para seleção de data.</li>
+            <pre>
+Código: &lt;label&gt;Data de Nascimento:&lt;/label&gt;&lt;input type="date" name="nascimento"&gt;
+            </pre>
+            <label>Data de Nascimento: </label> <input type="date" name="nascimento">
+            <br><br>
+
+            <li><strong>week</strong>: Campo para seleção de uma semana do ano.</li>
+            <pre>
+Código: &lt;label&gt;Semana:&lt;/label&gt;&lt;input type="week" name="semana"&gt;
+            </pre>
+            <label>Semana: </label> <input type="week" name="semana">
+            <br><br>
+
+            <li><strong>month</strong>: Campo para seleção de um mês específico.</li>
+            <pre>
+Código: &lt;label&gt;Mês:&lt;/label&gt;&lt;input type="month" name="mes"&gt;
+            </pre>
+            <label>Mês: </label> <input type="month" name="mes">
+            <br><br>
+
+            <li><strong>checkbox</strong>: Caixa de seleção (marcar/desmarcar).</li>
+            <pre>
+Código:
+&lt;label&gt;Adicionais:&lt;/label&gt;
+&lt;input type="checkbox" name="adicionais[]" value="queijo"&gt; + Queijo
+&lt;input type="checkbox" name="adicionais[]" value="bacon"&gt; + Bacon
+&lt;input type="checkbox" name="adicionais[]" value="tomate"&gt; + Tomate
+&lt;input type="checkbox" name="adicionais[]" value="picles"&gt; + Picles
+            </pre>
+            
+            <label>Adicionais:</label>
+            <label></label><input type="checkbox" name="adicionais[]" value="queijo">+ Queijo
+            <label></label><input type="checkbox" name="adicionais[]" value="bacon">+ Bacon
+            <label></label><input type="checkbox" name="adicionais[]" value="tomate">+ Tomate
+            <label></label><input type="checkbox" name="adicionais[]" value="picles">+ Picles
+
+            <p><b>Obs.:</b> Note que no checkbox podemos selecionar múltiplos valores ao mesmo tempo. Quando o formulário for enviado, será criado um vetor chamado 'adicionais', com os valores que foram marcados inseridos dentro dele.</p>
+            <br><br>
+
+            <li><strong>radio</strong>: Botão de opção, permite selecionar apenas uma opção de um grupo.</li>
+            <pre>
+Código:
+&lt;label&gt;Sexo:&lt;/label&gt;
+&lt;input type="radio" name="sexo" value="M"&gt; Masculino
+&lt;input type="radio" name="sexo" value="F"&gt; Feminino
+            </pre>
+            <label>Sexo: </label> 
+            <input type="radio" name="sexo" value="M"> Masculino
+            <input type="radio" name="sexo" value="F"> Feminino
+            <br><br>
+
+            <li><strong>range</strong>: Cria uma barra com valores mínimo, máximo e valor inicial definidos.</li>
+            <pre>
+Código: &lt;label&gt;Volume:&lt;/label&gt;&lt;input type="range" name="volume" min="0" max="100" value="50"&gt;
+            </pre>
+            <label>Volume: </label> <input type="range" name="volume" min="0" max="100" value="50">
+            <br><br>
+
+            <li><strong>color</strong>: Cria um campo seletor de cores.</li>
+            <pre>
+Código: &lt;label&gt;Cor favorita:&lt;/label&gt;&lt;input type="color" name="cor"&gt;
+            </pre>
+            <label>Cor favorita: </label> <input type="color" name="cor">
+            <br><br>
+
+            <li><strong>url</strong>: Cria um campo de formulário específico para inserção de endereços de sites.</li>
+            <pre>
+Código: &lt;label&gt;Site:&lt;/label&gt;&lt;input type="url" name="site"&gt;
+            </pre>
+            <label>Site: </label> <input type="url" name="site">
+            <br><br>
+
+            <li><strong>file</strong>: Permite o envio de 1 ou mais arquivos.</li>
+            <pre>
+Código: &lt;label&gt;Arquivo:&lt;/label&gt; &lt;input type="file" name="arquivo" &gt;
+            </pre>
+            <label>Arquivo: </label> <input type="file" name="arquivo" >
+            <p><b>Obs.:</b> Para anexar mais de um arquivo é usado o atributo 'multiple'</p>
+            <pre>
+Código: &lt;label&gt;Arquivo:&lt;/label&gt; &lt;input type="file" name="arquivo" multiple&gt;
+            </pre>
+            <label>Arquivo: </label> <input type="file" name="arquivo" multiple>           
+            <br><br>
+
+            <li><strong>search</strong>: Campo de pesquisa, similar ao text, mas otimizado para buscas.</li>
+            <pre>
+Código: &lt;label&gt;Pesquisar:&lt;/label&gt;&lt;input type="search" name="busca" placeholder="Pesquisar..."&gt;
+            </pre>
+            <label>Pesquisar: </label> <input type="search" name="busca" placeholder="Pesquisar...">
+            <br><br>
+
+            <li><strong>hidden</strong>: Campo invisível, usado para enviar dados ocultos no formulário.</li>
+            <pre>
+Código: &lt;input type="hidden" name="id_usuario" value="123"&gt;
+            </pre>
+            <input type="hidden" name="id_usuario" value="123"> (não aparece na tela, mas é enviado no formulário)
+            <br><br>
+
+            <li><strong>submit</strong>: Botão para enviar o formulário.</li>
+            <pre>
+Código: &lt;input type="submit" value="Enviar"&gt;
+            </pre>
+            <input type="submit" value="Enviar">
+            <br><br>
+
+            <li><strong>reset</strong>: Botão para limpar os campos do formulário.</li>
+            <pre>
+Código: &lt;input type="reset" value="Limpar"&gt;
+            </pre>
+            <input type="reset" value="Limpar">
+
+        </ul>
+        <p>Note que o input é uma tag autocontida, não percisa ser aberta e depois fechada. Já a tag label sempre precisa ser aberta e fechada. Existem mais tipos de inputs. É importante destacar também que alguns tipos de inputs utilizam mais alguns atributos da tag como 'name', 'value', 'min', 'max'... Esses atributos são especificos de cada tipo, qualquer dúvida visite <a href="https://www.w3schools.com/html/html_form_input_types.asp" target="_blank">w3schools - Inputs</a></p>
+        
+
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="textarea">Textarea</h3>
+        <p>O elemento &lt;textarea&gt; em HTML cria um campo de texto multilinha, ou seja, um espaço onde o usuário pode digitar várias linhas de texto. Com o atributo rows desterminando o númerode linhas e o atributo cols determinando o número de coluns</p>
+        <pre>
+Código:  &lt;label&gt;Mensagem:&lt;/label&gt;&lt;textarea id="mensagem" name="mensagem" rows="5" cols="30"&gt;
+        </pre>
+
+        <label>Mensagem:</label><br>  
+        <textarea id="mensagem" name="mensagem" rows="5" cols="30" > </textarea> 
+    
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="select">Select e Option</h3>
+        <p>O elemento &lt;select&gt; em HTML cria uma lista suspensa (menu dropdown) que permite ao usuário escolher uma ou mais opções entre várias pré-definidas. Ela é usada juntamente com a tag &lt;option&gt; que nos fornecerá as opções que podem ser escolhidas.</p>
+        <pre>
+Código:
+&lt;label&gt;Escolha um curso:&lt;/label&gt;
+&lt;select id="curso" name="curso"&gt;
+&lt;option value="html"&gt;Curso de HTML&lt;/option&gt;
+&lt;option value="css"&gt;Curso de CSS&lt;/option&gt;
+&lt;option value="javascript"&gt;Curso de JavaScript&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+        <label>Escolha um Curso:</label>
+        <select name="curso" id="curso">
+            <option value="html">Curso de HTML</option>
+            <option value="css">Curso de CSS</option>
+            <option value="javascript">Curso de JavaScript</option>
+        </select>
+
+        <p>No exemplo acima é possível selecionar apenas 1 dos cursos. Porém se usarmos o atributo 'multiple' dentro da tag &lt;select&gt; podemos selecionar mais de 1 curso.</p>
+
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="button">Button</h3>
+        <p>O elemento &lt;button&gt; em HTML cria um botão clicável que pode executar diferentes ações dentro de um formulário ou em scripts. Seu funcionamento é parecido com o da tag &lt;input type="submit"&gt; ou &lt;input type="reset"&gt;, porém oferece mais flexibilidade, pois permite incluir texto, imagens ou outros elementos dentro do botão.</p>
+        <pre>
+Código: &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+        </pre>
+        <button type="submit">Enviar</button>
+        <br><br>
+        <pre>
+Código: &lt;button type="reset"&gt;Limpar&lt;/button&gt;
+        </pre>
+        <button type="reset">Limpar</button>
+        <br><br>
+        <pre>
+Código: &lt;button type="button" onclick="alert('Olá!')"&gt;Clique aqui&lt;/button&gt;
+        </pre>
+        <button type="button" onclick="alert('Olá!')">Clique aqui</button>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="fieldset">Fieldset</h3>
+        <p>Por fim temos o &lt;fieldset&gt;. Ele é usado  para agrupar elementos de um formulário, criando uma caixa visual ao redor deles. Normalmente, é utilizada junto com a tag &lt;legend&gt;, que adiciona um título à caixa.</p>
+        <pre>
+Código:
+&lt;form method="GET"&gt;
+    &lt;fieldset&gt;
+    &lt;legend&gt;Informações Pessoais&lt;/legend&gt;
+    &lt;label&gt;Nome:&lt;/label&gt; &lt;input type="text" name="nome"&gt;
+    &lt;label&gt;Idade:&lt;/label&gt; &lt;input type="number" name="idade"&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+    &lt;button type="reset"&gt;Limpar&lt;/button&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+        </pre>
+
+        <form method="GET">
+            <fieldset>
+            <legend>Informações Pessoais</legend>
+            <label>Nome:</label> <input type="text" name="nome">
+            <label>Idade:</label> <input type="number" name="idade">
+            <br><br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+            </fieldset>
+        </form>
+    <p>Esse é um exemplo funcional de todos os conceitos vistos sobre formulários. Aqui foram utilizados apenas 2 tipos de inputs (text e number) e 2 tipos de buttons (submit e reset). E no formulário foi aplicada o atributo method="GET" que envia os dados do formulário pela URL, tornando-os visíveis e fáceis de compartilhar. Se preencher os campos e clicar em enviar, a URL da página será atualizada mostrando os valores de nome e idade inseridos. E caso clique em limpar todas a informações do formulário serão apagada.</p>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h2 align = "center">DIV e SPAN</h2>
+
+
+        <h3 id="div">O que é uma Div?</h3>
+        <p>A tag &lt;div&gt; no HTML é usada para criar divisões ou blocos genéricos na página. Ela não tem significado semântico, servindo apenas para agrupar outros elementos e facilitar a organização, estilização (com CSS) ou manipulação (com JavaScript) do conteúdo. Todo o conteúdo dessa página está sepado em div's. Ela é do tipo block-level (bloco). Isso significa que, por padrão, ela ocupa toda a largura disponível e sempre começa em uma nova linha, separando visualmente o conteúdo dos outros elementos. Na pratica ao se declarar 2 divs a primeira ficará por cima da segunda. É possível mudar essa caracteristica através do CSS, definindo as div's como inline-block (bloco em linha) permitindo que os elemetos fiquem na mesma linha. Abaixo está um trecho de código em CSS configurando algumas div's, esse trecho de código se encontra dentro do head no nosso HTML.</p>
+        <pre>
+&lt;style&gt;
+  .bloco {
+      width: 200px;
+      height: 100px;
+      margin: 10px;
+      padding: 10px;
+      color: #fff;
+      font-weight: bold;
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+    }
+    .vermelho { background: #e74c3c; }
+    .azul { background: #3498db; }
+    .verde { background: #2ecc71; }
+&lt;/style&gt;
+        </pre>
+        <p>Feito a configuração no CSS, agora é possível implementar as div's.</p>
+        <pre>
+Código: &lt;div class="bloco vermelho"&gt;Bloco Vermelho&lt;/div&gt;
+        &lt;div class="bloco azul"&gt;Bloco Azul&lt;/div&gt;
+        &lt;div class="bloco verde"&gt;Bloco Verde&lt;/div&gt;
+        </pre>
+    
+        <div class="bloco vermelho">Bloco Vermelho</div>
+        <div class="bloco azul">Bloco Azul</div>
+        <div class="bloco verde">Bloco Verde</div>
+
+        <p>No exemplo acima foi utilizado o atributo class = "bloco ...", esse atributo serve para agrupar elmentos que serão estilizados da mesma forma no CSS. Em suma, as &lt;div&gt; servem para agrupar e organizar elementos em blocos na página HTML. Elas são do tipo block-level, ocupam toda a largura disponível e facilitam a estruturação do layout, aplicação de estilos com CSS e manipulação com JavaScript. São essenciais para criar seções, áreas e dividir o conteúdo visualmente em um site.</p>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="span">O que é um Span?</h3> 
+        A tag &lt;span&gt; é um elemento HTML do tipo inline, usada para marcar ou agrupar pequenas partes de texto ou outros elementos dentro de uma linha. Ela não tem significado semântico, servindo apenas para aplicar estilos com CSS ou manipular com JavaScript.
+        <pre>
+Código CSS: 
+.destaque {
+    color: blue;
+    font-weight: bold;
+}   
+Código HTML: 
+&lt;p&gt;Este texto tem uma &lt;span class="destaque"&gt;palavra destacada&lt;/span&gt; usando span.&lt;/p&gt;
+        </pre>
+
+        <p>Este texto tem uma <span class="destaque">palavra destacada</span> usando span.</p>
+        <p>Diferente da &lt;div&gt;, que é um elemento de bloco (block-level) e ocupa toda a largura disponível, o &lt;span&gt; é um elemento inline. Isso significa que o &lt;span&gt; não quebra a linha e só ocupa o espaço necessário para o seu conteúdo, sendo usado para destacar ou estilizar partes pequenas de texto dentro de uma linha, sem criar um novo bloco visual.</p>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p> 
+        <hr>
+
+        <h2 align = "center">Mídias</h2>
+
+
+        <h3 id="imagem">Imagem</h3>
+        
+        <p>    A tag img é usada para incorporar imagens em uma página HTML. Ela é um elemento vazio, o que significa que não possui uma tag de fechamento.
+<pre>
+    O atributo src é obrigatório e especifica o caminho para o arquivo de imagem. 
+
+    O atributo alt é usado para fornecer um texto alternativo que descreve a imagem, útil para acessibilidade e quando a imagem não pode ser carregada.
+
+    O atributo width define a largura da imagem em pixels.
+
+    O atributo height define a altura da imagem em pixels.
+
+    O atributo title fornece informações adicionais sobre a imagem, que geralmente aparecem como uma dica de ferramenta quando o usuário passa o mouse sobre a imagem.
+</pre>
+    Aqui seguem 2 exemplos de imagens, a primeira armazenada localmente e a segunda proveniente do site da w3schools.
+   </p>
+
+   <pre>
+Exemplo 1:
+ &lt;img src="ballons.png" alt="3 balões coloridos: 1 azul, 1 vermelho e 1 amarelo" title="Balões Coloridos" width="300" height="200"&gt;
+    </pre>
+    <img src="ballons.png" alt="3 balões coloridos: 1 azul, 1 vermelho e 1 amarelo" title="Balões Coloridos" width="300" height="200">
+
+   <pre>
+Exemplo 2:
+&lt;img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Trulli" title="Pic Trulli" width="500" height="333"&gt;
+   </pre>
+   <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Trulli" title="Pic Trulli" width="500" height="333">
+
+
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="audio">Áudio</h3>
+        <p>Ao trabalhar com áudio em HTML, utilize a tag &lt;audio&gt;.A tag audio é usada para incorporar conteúdo de áudio em uma página HTML. Ela permite que você adicione arquivos de áudio, como música ou narração, que os usuários podem reproduzir diretamente no navegador. Ela é usada juntamente com alguns atributos para refinar seu uso, sendo alguns deles:</p>
+
+        <pre>
+    O atributo controls adiciona controles de reprodução, como play, pause e volume, para que os usuários possam interagir com o áudio.
+
+    O atributo autoplay faz com que o áudio comece a tocar automaticamente quando a página é carregada. Deve ser usado com cautela, pois pode ser intrusivo para os usuários.
+
+    O atributo loop faz com que o áudio seja reproduzido em loop contínuo, reiniciando automaticamente quando chega ao fim.
+
+    O atributo muted inicia o áudio sem som. Pode ser útil em conjunto com autoplay, já que muitos navegadores bloqueiam a reprodução automática de áudio com som.
+
+    O atributo src especifica o caminho para o arquivo de áudio. Pode ser usado diretamente na tag audio ou dentro de uma tag source para suportar múltiplos formatos de áudio. 
+    É comum usar multiplas tags source para garantir compatibilidade com diferentes navegadores.
+        </pre>
+        <p>Exemplo de audio retirado diretamente da internet:</p>
+        <pre>
+Código: 
+&lt;audio controls&gt; 
+    &lt;source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg"&gt;
+    &lt;source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg"&gt;
+        Seu navegador não suporta o elemento de áudio.
+&lt;/audio&gt;
+        </pre>
+    <audio controls>
+        <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="video">Vídeo</h3>
+        <p>A tag video é usada para incorporar conteúdo de vídeo em uma página HTML. Ela permite que você adicione arquivos de vídeo que os usuários podem assistir diretamente no navegador.Ela é usada juntamente com alguns atributos para refinar seu uso, sendo alguns deles:</p>
+        <pre>
+    O atributo controls adiciona controles de reprodução, como play, pause e volume, para que os usuários possam interagir com o vídeo.
+
+    O atributo autoplay faz com que o vídeo comece a tocar automaticamente quando a página é carregada. Deve ser usado com cautela, pois pode ser intrusivo para os usuários.
+
+    O atributo loop faz com que o vídeo seja reproduzido em loop contínuo, reiniciando automaticamente quando chega ao fim.
+
+    O atributo muted inicia o vídeo sem som. Pode ser útil em conjunto com autoplay, já que muitos navegadores bloqueiam a reprodução automática de vídeos com som.
+
+    O atributo poster especifica uma imagem a ser exibida antes do vídeo começar a tocar.
+
+    O atributo width define a largura do vídeo em pixels.
+
+    O atributo height define a altura do vídeo em pixels.
+
+    O atributo src especifica o caminho para o arquivo de vídeo. Pode ser usado diretamente na tag video ou dentro de uma tag source para suportar múltiplos formatos de vídeo. É comum usar múltiplas tags source para garantir compatibilidade com diferentes navegadores.
+        </pre>
+        <p>Exemplo de audio retirado diretamente da internet:</p>
+        <pre>
+&lt;video width="500" height="300" controls poster="capa_video.png"&gt;
+    &lt;source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"&gt;
+    &lt;source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg"&gt;
+    Seu navegador não suporta o elemento de vídeo.
+&lt;/video&gt;      
+        </pre>
+        <video width="500" height="300" controls poster="capa_video.png">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+         Seu navegador não suporta o elemento de vídeo.
+        </video>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="track">Track</h3>
+        <p>A tag track é usada para adicionar faixas de texto, como legendas, descrições ou capítulos, a elementos de mídia como vídeo e áudio em uma página HTML. Ela melhora a acessibilidade e a experiência do usuário, permitindo que o conteúdo seja compreendido por um público mais amplo. Ela conta com alguns atributos como: </p>
+        <pre>
+    O atributo kind especifica o tipo de faixa que está sendo adicionada. Os valores comuns incluem
+
+    caption -> usado para legendas que incluem não apenas o diálogo, mas também descrições de sons importantes para a compreensão do conteúdo.
+
+    subtitles-> usado para legendas que traduzem o diálogo falado em outro idioma.
+
+    descriptions-> usado para fornecer descrições de áudio para pessoas com deficiência visual, descrevendo o que está acontecendo na tela.
+
+    chapters-> usado para dividir o conteúdo em capítulos, permitindo que os usuários naveguem facilmente entre diferentes seções do vídeo ou áudio.
+
+    metadata-> usado para fornecer informações adicionais sobre o conteúdo, como créditos ou informações técnicas, que não são exibidas diretamente ao usuário.
+
+    O atributo src define o caminho para o arquivo de texto que contém as legendas ou descrições. Esse arquivo geralmente está no formato WebVTT (.vtt).
+
+    O atributo srclang especifica o idioma da faixa de texto usando um código de idioma (por exemplo, "en" para inglês, "pt" para português).
+
+    O atributo label fornece um rótulo descritivo para a faixa, que pode ser exibido em menus de seleção de faixas no player de mídia.
+
+    O atributo default indica que esta faixa deve ser ativada por padrão quando o vídeo ou áudio for carregado. Apenas uma faixa pode ter este atributo.
+
+    É POSSÍVEL TER VÁRIAS TAGS TRACK PARA UM MESMO VIDEO OU AUDIO, CADA UMA COM UMA FUNÇÃO DIFERENTE.
+        </pre>
+        <p>Aqui seguem 2 exemplos em vídeo. O primeiro não está sendo utilizado o track. O segundo já está utilizando o track.</p>
+        
+        <pre>
+Código:
+&lt;video width="500" height="300" srclang="en"&gt;
+    &lt;source src="Guns N' Roses - Welcome To The Jungle.mp4" type="video/mp4"&gt;
+    Seu navegador não suporta o elemento de vídeo.
+&lt;/video&gt;
+        </pre>
+        
+    <video controls width="500" height="300" srclang="en"> 
+        <source src="Guns N' Roses - Welcome To The Jungle.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+    <p>(Sem Track)</p>
+    <br>
+    <pre>
+Código:
+&lt;video width="500" height="300" srclang="en"&gt;
+    &lt;source src="Guns N' Roses - Welcome To The Jungle.mp4" type="video/mp4"&gt;
+    &lt;track kind="captions" src="Guns-N'-Roses-Welcome-To-The-Jungle.vtt" srclang="en" label="English" default&gt;
+    Seu navegador não suporta o elemento de vídeo.
+&lt;/video&gt;
+        </pre>
+        
+    <video controls width="500" height="300" srclang="en"> 
+        <source src="Guns N' Roses - Welcome To The Jungle.mp4" type="video/mp4">
+        <track kind="captions" src="Guns-N'-Roses-Welcome-To-The-Jungle.vtt" srclang="en" label="English" default>
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+    <p>(Com Track - Adiante até o segundo 0:45 para ver a diferença )</p>
+
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="iframe">Iframe</h3>
+        <p>Por fim temos o Iframe: Essa tag é usada para incorporar outro documento HTML dentro do documento atual. Ela cria uma janela embutida que pode exibir uma página web diferente, permitindo a integração de conteúdo externo, como vídeos, mapas, formulários ou outras páginas web, diretamente na sua página. E conta com alguns atribustos como:</p>
+        <pre>
+    O atributo src define o URL da página a ser incorporada.
+
+    O atributo width define a largura do iframe em pixels ou como uma porcentagem do elemento pai.
+
+    O atributo height define a altura do iframe em pixels ou como uma porcentagem do elemento pai.
+
+    O atributo frameborder especifica se o iframe deve ter uma borda. Os valores possíveis são "0" (sem borda) e "1" (com borda). Este atributo está obsoleto em HTML5, e é recomendado usar CSS
+    para estilizar a borda.
+
+    O atributo allowfullscreen permite que o iframe seja exibido em tela cheia, se o conteúdo incorporado suportar essa funcionalidade.
+
+    O atributo loading pode ser usado para definir o comportamento de carregamento do iframe. O valor "lazy" faz com que o iframe seja carregado apenas quando estiver prestes a entrar na área
+    visível da tela, melhorando o desempenho da página.
+
+    O atributo name atribui um nome ao iframe, que pode ser usado como destino para links ou scripts.
+
+    O atributo sandbox aplica restrições adicionais ao conteúdo do iframe, como desabilitar scripts ou impedir a navegação para outras páginas. Pode ser usado com vários valores para definir
+    diferentes níveis de restrição.
+
+    O atributo referrerpolicy controla como as informações de referência são enviadas ao carregar o conteúdo do iframe. Pode ser usado para melhorar a privacidade e segurança.
+        </pre>
+        <p>Exemplo 1: Vídeo incorporado diretamente do Youtube</p>
+        <pre>
+Código:
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/2cZ_EFAmj08?si=e1bByv_Y6pxcGk2L" title="YouTube video player" frameborder="0" allow="accelerometer; 
+autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+        </pre>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2cZ_EFAmj08?si=e1bByv_Y6pxcGk2L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <p>Exemplo 2: Localização da Torre Eifell incorporado diretamente do Google Maps</p>
+        <pre>
+Código:
+&lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.991624607563!2d2.289717696789544!3d48.8583701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTorre%20Eiffel!5e0!3m2!1spt-BR!2sbr!4v1757605456165!5m2!1spt-BR!2sbr" width="600" height="450" 
+style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"&gt;&lt;/iframe&gt;
+        </pre>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.991624607563!2d2.289717696789544!3d48.8583701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTorre%20Eiffel!5e0!3m2!1spt-BR!2sbr!4v1757605456165!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+
+        <h2 align = "center">Tabelas</h2>
+        <p>As tabelas em HTML servem para organizar e apresentar dados em formato tabular, ou seja, em linhas e colunas. Elas são ideais para mostrar informações estruturadas, como planilhas, horários, notas, listas de produtos, relatórios, etc. A tag &lt;table&gt; é usada para criar uma tabela.</p>
+        <p>As tabelas em HTML devem ser utilizadas exclusivamente para apresentar dados tabulares, e não como ferramenta de layout ou design da página, pois existem técnicas mais adequadas como o uso de CSS para isso.</p>
+        <p>É fundamental incluir cabeçalhos de tabela (&lt;th&gt;) para identificar o conteúdo das colunas e linhas, o que melhora significativamente a acessibilidade e compreensão da tabela por todos os usuários.</p>
+        <p>Quando for necessário unir células, é possível utilizar os atributos colspan e rowspan, que permitem mesclar colunas ou linhas.</p>
+        <p>Além disso, é importante garantir a acessibilidade para pessoas que utilizam leitores de tela ou outros dispositivos assistivos, assegurando que os dados possam ser interpretados corretamente.</p>
+        <p>Também é recomendado evitar tabelas aninhadas, pois elas tornam a estrutura mais complexa e dificultam tanto a manutenção do código quanto a leitura do conteúdo.</p>
+        <p>A estilização das tabelas deve ser feita com CSS, evitando atributos HTML obsoletos, e o desenvolvedor deve testar as tabelas em diferentes dispositivos e navegadores para garantir que sejam exibidas corretamente em todos os contextos.</p>
+        <p>É aconselhável adotar tabelas responsivas, para que se ajustem bem a telas menores e proporcionem uma boa experiência de uso em dispositivos móveis.</p>
+        <p>Por fim, as tabelas contam com uma série de atribustos, sendo os principais: </p>
+        <pre>
+    - border: Define a borda da tabela.
+    - cellpadding: Define o espaçamento interno das células.
+    - cellspacing: Define o espaçamento entre as células.
+    - width: Define a largura da tabela.
+    - height: Define a altura da tabela.
+    - align: Alinha a tabela (esquerda, direita, centro).
+    - bgcolor: Define a cor de fundo da tabela.
+    - summary: Fornece uma descrição da tabela para leitores de tela.
+    - caption: Adiciona uma legenda à tabela.
+    - colgroup: Agrupa colunas para aplicar estilos ou atributos.
+    - col: Define atributos para colunas específicas.
+    - align (em &lt;td&gt; e &lt;th&gt;): Alinha o conteúdo da célula (esquerda, direita, centro).
+    - valign (em &lt;td&gt; e &lt;th&gt;): Alinha verticalmente o conteúdo da célula (topo, meio, base).
+    - alingn = "center": centraliza a tabela na página
+        </pre>
+
+        <h3 id="tags_tabela">Conceitos Básicos: tr, th, td</h3>
+        <p>Para estruturar as tabelas são utilizados 3 tags:</p>
+        <ul>
+            <li>A tag &lt;tr&gt; define uma linha na tabela. (Linhas)</li>
+            <li>A tag &lt;td&gt; define uma célula de dados em uma linha. (Colunas)</li>
+            <li>A tag &lt;th&gt;define uma célula de cabeçalho em uma linha. (Cabeçalho)</li>
+        </ul>
+        <p>A partir do que já foi visto, já conseugimos montar uma tabela. Segue exemplo:</p>
+        <pre>
+Código:
+&lt;table border="1" width="250" align="center" cellpadding="5" cellspacing="5" summary="Tabela de exemplo"&gt;
+    &lt;caption&gt;Tabela de Idade dos Alunos&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th title="Nome Completo"&gt;Nome&lt;/th&gt;
+        &lt;th title="Idade"&gt;Idade&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr id="1"&gt;
+        &lt;td&gt;Eduardo&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="2"&gt;
+        &lt;td&gt;Ana&lt;/td&gt;
+        &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="3"&gt;
+        &lt;td&gt;João&lt;/td&gt;
+        &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="4"&gt;
+        &lt;td&gt;Maria&lt;/td&gt;
+        &lt;td&gt;22&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="5"&gt;
+        &lt;td&gt;Carlos&lt;/td&gt;
+        &lt;td&gt;35&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="6"&gt;
+        &lt;td&gt;Beatriz&lt;/td&gt;
+        &lt;td&gt;27&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;Total&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;     
+&lt;/table&gt;
+        </pre>
+        <table border="1" width="250" align="center" cellpadding="5" cellspacing="5" summary="Tabela de exemplo">
+            <caption>Tabela de Idade dos Alunos</caption>
+            <tr>
+                <th title="Nome Completo">Nome</th>
+                <th title="Idade">Idade</th>
+            </tr>
+            <tr id="1">
+                <td>Eduardo</td>
+                <td>25</td>
+            </tr>
+            <tr id="2">
+                <td>Ana</td>
+                <td>30</td>
+            </tr>
+            <tr id="3">
+                <td>João</td>
+                <td>28</td>
+            </tr>
+            <tr id="4">
+                <td>Maria</td>
+                <td>22</td>
+            </tr>
+            <tr id="5  ">
+                <td>Carlos</td>
+                <td>35</td>
+            </tr>
+            <tr id="6">
+                <td>Beatriz</td>
+                <td>27</td>
+            </tr>    
+            <tr>
+                <td>Total</td>
+                <td>6</td>
+            </tr>     
+        </table>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="estrutura_tabela">Conceitos de thead, tbody e tfoot</h3>
+        <p>Esixtem também 3 conceitos muito importante ao trabalhar com tabelas.</p>
+        <p><strong>&lt;thead&gt;</strong> - É a seção de cabeçalho da tabela. Normalmente contém os títulos das colunas (geralmente com &lt;th&gt;). Fica sempre no topo da tabela e ajuda os leitores de tela e navegadores a entenderem a estrutura dos dados.</p>
+        <p><strong>&lt;tbody&gt;</strong> - É o corpo principal da tabela, onde ficam as linhas de dados reais (com &lt;tr&lt; e &gt;td&gt;). Pode ter várias linhas e normalmente é a parte mais extensa da tabela.</p>
+        <p><strong>&lt;tfoot&gt;</strong> - É o rodapé da tabela, usado para informações de resumo ou totais. Mesmo que visualmente apareça no fim, alguns navegadores processam o &lt;tfoot&gt; antes do &lt;tbody&gt; para otimizar a renderização.</p>
+        <p>Com eles já é possivel montar uma tabela melhor estruturada, da seguinte forma:</p>
+        <pre>
+Código:
+&lt;table border="1" width="250" align="center" cellpadding="5" cellspacing="5"&gt;
+    &lt;caption&gt;Tabela de Idade dos Alunos&lt;/caption&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Total&lt;/td&gt;
+            &lt;td&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th colspan="2"&gt;Dados&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th title="Nome Completo"&gt;Nome&lt;/th&gt;
+            &lt;th title="Idade"&gt;Idade&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr id="1"&gt;
+            &lt;td&gt;Eduardo&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="2"&gt;
+            &lt;td&gt;Ana&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="3"&gt;
+            &lt;td&gt;João&lt;/td&gt;
+            &lt;td&gt;28&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="4"&gt;
+            &lt;td&gt;Maria&lt;/td&gt;
+            &lt;td&gt;22&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="5"&gt;
+            &lt;td&gt;Carlos&lt;/td&gt;
+            &lt;td&gt;35&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="6"&gt;
+            &lt;td&gt;Beatriz&lt;/td&gt;
+            &lt;td&gt;27&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+        </pre>
+        <table border="1" width="250" align="center" cellpadding="5" cellspacing="5">
+            <caption>Tabela de Idade dos Alunos</caption>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td>6</td>
+                </tr>
+            </tfoot>
+            
+            <thead>
+                <tr>
+                    <th colspan = "2">Dados</th>
+                </tr>
+                <tr>
+                    <th title="Nome Completo">Nome</th>
+                    <th title="Idade">Idade</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr id="1">
+                    <td>Eduardo</td>
+                    <td>25</td>
+                </tr>
+                <tr id="2">
+                    <td>Ana</td>
+                    <td>30</td>
+                </tr>
+                <tr id="3">
+                    <td>João</td>
+                    <td>28</td>
+                </tr>
+                <tr id="4">
+                    <td>Maria</td>
+                    <td>22</td>
+                </tr>
+                <tr id="5  ">
+                    <td>Carlos</td>
+                    <td>35</td>
+                </tr>
+                <tr id="6">
+                    <td>Beatriz</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <p><strong>Obs.:</strong> Observe que mesmo alterando a ordem em que os elementos de linha &lt;tr&gt; e de coluna&lt;td&gt; tenha sido colocados no HTML. Por estarem dentro do  &lt;thead&gt;, &lt;tbody&gt; e &lt;tfoot&gt;, se mantiveram no mesmo lugar. Isso porque esses elementos são interpretados no HTML e lidos de forma semântica, não importando a ordem.</p>
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <hr>
+        <h3 id="conceitos_tabela">Mais alguns conceitos e estilização com CSS</h3>
+        <p>Por fim, ao se trabalhar com tabelas, é importante destacar o uso das CSS's. Com elas conseguimos uma tabela visualmente mais atrativa e elegantes. Com CSS, é possível personalizar cores, bordas, espaçamento, fontes, efeitos ao passar o mouse, entre outros detalhes. Deixando sua tabela mais organizada, com cores alternadas nas linhas, cabeçalho destacado e bordas suaves. Abaixo segue um trecho de código em CSS e uma tabela no mesmo modelo da última porém com o uso da CSS's.</p>
+        <pre>
+Código em CSS:
+table.estilizada {
+    -webkit-box-shadow: 12px 14px 6px 5px rgba(0,0,0,0.24);
+    box-shadow: 12px 14px 6px 5px rgba(0,0,0,0.24);
+    border: solid 1px gray;
+}
+
+table.estilizada thead th {
+    background-color: black;
+    color: white;
+}
+
+table.estilizada tfoot td {
+    background-color: lightgray;
+}
+
+table.estilizada tbody tr:nth-child(even) td {
+    background-color: #f1f1f1; /* linhas pares */
+}
+
+table.estilizada tbody tr:hover td {
+    background-color:  #ff0000;
+    cursor: pointer; /* mouse vira mãozinha */
+}
+table.estilizada tr:nth-child(even) {
+    background-color: burlywood;
+}
+table.estilizada tr:hover td {
+    background-color: darkgray;
+}
+
+Código em HTML:
+&lt;table width="250" align="center" class="estilizada"&gt;
+    &lt;caption&gt;Tabela de Idade dos Alunos&lt;/caption&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Total&lt;/td&gt;
+            &lt;td&gt;6&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th colspan="2"&gt;Dados&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th title="Nome Completo"&gt;Nome&lt;/th&gt;
+            &lt;th title="Idade"&gt;Idade&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr id="1"&gt;
+            &lt;td&gt;Eduardo&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="2"&gt;
+            &lt;td&gt;Ana&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="3"&gt;
+            &lt;td&gt;João&lt;/td&gt;
+            &lt;td&gt;28&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="4"&gt;
+            &lt;td&gt;Maria&lt;/td&gt;
+            &lt;td&gt;22&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="5"&gt;
+            &lt;td&gt;Carlos&lt;/td&gt;
+            &lt;td&gt;35&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr id="6"&gt;
+            &lt;td&gt;Beatriz&lt;/td&gt;
+            &lt;td&gt;27&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+&lt;/table&gt;
+    </pre>
+        <table width="250" align="center" class = "estilizada">
+            <caption>Tabela de Idade dos Alunos</caption>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td>6</td>
+                </tr>
+            </tfoot>
+            
+            <thead>
+                <tr>
+                    <th colspan = "2">Dados</th>
+                </tr>
+                <tr>
+                    <th title="Nome Completo">Nome</th>
+                    <th title="Idade">Idade</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr id="1">
+                    <td>Eduardo</td>
+                    <td>25</td>
+                </tr>
+                <tr id="2">
+                    <td>Ana</td>
+                    <td>30</td>
+                </tr>
+                <tr id="3">
+                    <td>João</td>
+                    <td>28</td>
+                </tr>
+                <tr id="4">
+                    <td>Maria</td>
+                    <td>22</td>
+                </tr>
+                <tr id="5  ">
+                    <td>Carlos</td>
+                    <td>35</td>
+                </tr>
+                <tr id="6">
+                    <td>Beatriz</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <p>Resumidamente, através da CSS foi colocado dentro da tabela um 'box-shadow' que dá um efeito de profundidade e definimos uma borda do tipo 'solid' na cor cinza. Para a parte do cabeçalho foi definido uma cor de fundo preta, e a cor das letras em branco. Para o rodapé foi definida apenas uma cor de fundo cinza claro e quando passamos o mouse em cima muda para cinza escuro. No corpo da tabela foram aplicados alguns estilos, tendo todas a linhas pares a cor de fundo branco-acinzentado, e para cada linha, ao passar o mouse por cima a cor de fundo é alterado para vermelho e a seta do mouse muda para o cursor (mãozinha).</p>
+
+
+        <p><a href="#inicio">Voltar ao Topo</a></p>
+        <p><a href="index.html">Voltar ao Módulo 1</a></h2></p>
+    </div>
+
+    <div class="footer">
+
+    </div> 
+    
 </body>
 </html>
